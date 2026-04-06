@@ -43,7 +43,10 @@ const app = express();
 //  CORS - Allow frontend to talk to backend
 // Only allows requests from our React app
 app.use(cors({
-  origin:      process.env.CLIENT_URL || 'http://localhost:3000',
+  origin:      process.env.CLIENT_URL || [
+    "http://localhost:3000",
+    "https://chickfrontend.vercel.app"
+  ],
   credentials: true,
   methods:     ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
